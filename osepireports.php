@@ -5,6 +5,21 @@ require_once 'osepireports.civix.php';
 use CRM_Osepireports_ExtensionUtil as E;
 // phpcs:enable
 
+
+function osepireports_civicrm_buildForm($formName, &$form) {
+  if ($formName == 'CRM_Contact_Form_Search_Basic') {
+    // see if we have a tag id in the url to select a default value
+    $store = NULL;
+    $tid = CRM_Utils_Request::retrieve('osepi_tag_id', 'Integer', $store, FALSE, NULL ,'GET');
+    if ($tid) {
+      $defaults = [];
+      $defaults['tag'][0] = $tid;
+      $form->setDefaults($defaults);
+    }
+  }
+
+}
+
 /**
  * Implements hook_civicrm_config().
  *

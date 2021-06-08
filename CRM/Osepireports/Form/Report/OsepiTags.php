@@ -79,8 +79,10 @@ class CRM_Osepireports_Form_Report_OsepiTags extends CRM_Report_Form {
       $style .= 'background-color:' . $tag->color . ";";
     }
     $span = '<span style="' . $style . '">' . $tag->name . '</span>';
+    $link = CRM_Utils_System::url('civicrm/contact/search', 'reset=1&osepi_tag_id=' . $tag->id);
+    $a = '<a href="' . $link . '">' . $span . '</a>';
 
-    return $span;
+    return $a;
   }
 
   private function getTagChildren($tagId) {
