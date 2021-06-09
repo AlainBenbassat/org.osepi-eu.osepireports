@@ -44,7 +44,6 @@ class CRM_Osepireports_Form_Report_OsepiTags extends CRM_Report_Form {
 
     foreach ($rows as $rowNum => $row) {
       $this->addCurrentTagAndChildTags($newRows, $row['osepi_tags_tag_id'], 0);
-      //$rows[$rowNum]['osepi_tags_tag_name'] = '<span style="background-color: ' . $row['osepi_tags_tag_color'] . '">&nbsp;' . $row['osepi_tags_tag_name'] . '&nbsp;</span>';
     }
 
     $rows = $newRows;
