@@ -58,7 +58,6 @@ class CRM_Osepireports_Form_Report_OsepiEvents extends CRM_Report_Form {
 
   public function alterDisplay(&$rows) {
     foreach ($rows as $rowNum => $row) {
-      $rows[$rowNum]['osepi_events_event_name'] = $this->addLinkToEvent($row['osepi_events_event_id'], $row['osepi_events_event_name']);
       $rows[$rowNum]['osepi_events_participant_count'] = $this->addLinkToParticipants($row['osepi_events_event_id'], $row['osepi_events_participant_count']);
     }
   }
